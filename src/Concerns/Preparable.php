@@ -5,7 +5,7 @@ namespace Gingdev\Qwen\Concerns;
 use Symfony\Component\Uid\Uuid;
 
 /**
- * @phpstan-type ParametersType array{model: string, messages: list<array{role: 'assistant'|'system'|'user', content: string, chat_type: string}> }
+ * @phpstan-type ParametersType array{model: string, messages: list<array{role: 'assistant'|'system'|'user', content: string, chat_type?: 't2t'|'search'}>}
  */
 trait Preparable
 {
