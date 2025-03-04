@@ -4,6 +4,8 @@ namespace Gingdev\Qwen\Responses\Chat;
 
 /**
  * @internal
+ *
+ * @phpstan-import-type MessageType from CreateMessage
  */
 final class CreateResponse
 {
@@ -13,10 +15,10 @@ final class CreateResponse
     }
 
     /**
-     * @param array{choices: array<int, array{message: array{role: string, content: string}}>} $data
+     * @param array{choices: array<int, array{message: MessageType}>} $data
      */
     public static function from(array $data): self
     {
-        return new self(CreateMessage::create($data['choices'][0]['message']));
+        return new self(CreateMessage::from($data['choices'][0]['message']));
     }
 }

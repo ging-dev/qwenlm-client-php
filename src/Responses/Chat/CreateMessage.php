@@ -3,6 +3,8 @@
 namespace Gingdev\Qwen\Responses\Chat;
 
 /**
+ * @phpstan-type MessageType array{role: string, content: string, extra?: mixed}
+ *
  * @internal
  */
 final class CreateMessage
@@ -18,9 +20,9 @@ final class CreateMessage
     }
 
     /**
-     * @param array{role: string, content: string, extra?: mixed[]} $data
+     * @param MessageType $data
      */
-    public static function create(array $data): self
+    public static function from(array $data): self
     {
         return new self($data['role'], $data['content'], $data['extra'] ?? null);
     }

@@ -16,7 +16,7 @@ final class Client
 
     public static function fromToken(string $token): self
     {
-        return new self(HttpClient::createForBaseUri('https://chat.qwenlm.ai/', [
+        return new self(HttpClient::createForBaseUri('https://chat.qwen.ai/', [
             'auth_bearer' => $token,
         ]));
     }
