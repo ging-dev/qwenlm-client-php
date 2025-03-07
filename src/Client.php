@@ -14,6 +14,15 @@ final class Client
     ) {
     }
 
+    /**
+     * Creates a new Client instance using the provided bearer token.
+     *
+     * Configures an HTTP client with a base URI of "https://chat.qwen.ai/", sets bearer authentication 
+     * with the given token, and adds a specific cookie header.
+     *
+     * @param string $token Bearer token for authentication.
+     * @return self A new Client instance.
+     */
     public static function fromToken(string $token): self
     {
         return new self(HttpClient::createForBaseUri('https://chat.qwen.ai/', [
@@ -22,6 +31,14 @@ final class Client
         ]));
     }
 
+    /**
+     * Returns a Chat resource instance.
+     *
+     * This method creates a Chat instance bound to the current HTTP client configuration,
+     * enabling access to chat-related functionalities.
+     *
+     * @return Chat The Chat resource instance.
+     */
     public function chat(): Chat
     {
         return $this->bindForClass(Chat::class);
