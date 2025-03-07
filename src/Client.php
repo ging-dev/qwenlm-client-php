@@ -18,6 +18,7 @@ final class Client
     {
         return new self(HttpClient::createForBaseUri('https://chat.qwen.ai/', [
             'auth_bearer' => $token,
+            'headers' => ['Cookie' => 'ssxmod_itna=Symfony'],
         ]));
     }
 
